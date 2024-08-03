@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: ""
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -9,7 +9,13 @@ redirect_from:
 
 {% include base_path %}
 
-Education
+<object data="/files/Jaco_DuToit_Resume.pdf" type="application/pdf" width="600px" height="600px">
+    <embed src="/files/Jaco_DuToit_Resume.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/files/Jaco_DuToit_Resume.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
+<!-- Education
 ======
 * Ph.D in Version Control Theory, GitHub University, 2018 (expected)
 * M.S. in Jekyll, GitHub University, 2014
@@ -61,4 +67,4 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
