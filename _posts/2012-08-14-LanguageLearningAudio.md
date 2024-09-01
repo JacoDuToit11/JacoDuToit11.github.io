@@ -1,5 +1,5 @@
 ---
-title: 'Generating audio for learning languages'
+title: 'Generating Audio Files for Learning Languages'
 date: 2024-08-24
 # categories: [""]
 permalink: /posts/LanguageLearningAudio/
@@ -9,11 +9,12 @@ tags:
   - AI for Educaction
 ---
 
-# Language Learning Audio Generation: A Step-by-Step Guide
+In this post, I'll walk you through how I generated audio files for assisting people in language learning. 
 
-In this blog post, I'll walk you through how I generated audio files for language learning. These audio files are designed to repeat English phrases followed by their translations in a different language, which can greatly enhance the learning process by reinforcing vocabulary and phrases through repetition. 
+# Generating Audio Files for Learning Languages
+We generate audio files which are designed to repeat English phrases followed by their translations in a different language. This can greatly enhance the learning process by reinforcing vocabulary and phrases through repetition. 
 
-Github Repo: https://github.com/JacoDuToit11/LanguageLearningAudioGeneration
+[Github](https://github.com/JacoDuToit11/LanguageLearningAudioGeneration)
 
 ## Why This Method of Learning is Useful
 
@@ -59,14 +60,16 @@ language = config['settings']['language']
 difficulty_level = config['settings']['difficulty_level']
 ```
 
-First, we generate the lessons through the OpenAI API as follows:
+First, we generate the lessons through the use of a Large Language Model (LLM) from the OpenAI API as follows:
 ```python
 system_instruction = 'You are a language teacher creating a podcast to help people learn a language.'
 
 prompt = textwrap.dedent(f'''
-    Provide exactly {num_lessons} different lessons for people learning {language}. You should give a phrase in English, 
-    and then the translation in {language}. Each lesson should contain {phrases_per_lesson} phrases. 
-    These lessons should be at a {difficulty_level} level. You can make up details like names and years.
+    Provide exactly {num_lessons} different lessons for people learning {language}. 
+    You should give a phrase in English, and then the translation in {language}. 
+    Each lesson should contain {phrases_per_lesson} phrases. 
+    These lessons should be at a {difficulty_level} level. 
+    You can make up details like names and years.
     The format should look like this: 
 
     ### Lesson 1: title...
@@ -102,19 +105,19 @@ We process the output of the LLM to prepare it for conversion to a seperate audi
 
 First we use regex to extract each lesson
 ```python
-    lesson_pattern = re.compile(r'### (Lesson ([\w]+):[\S\s]+?)---')
-    lessons_extracted = re.findall(lesson_pattern, lessons)
+lesson_pattern = re.compile(r'### (Lesson ([\w]+):[\S\s]+?)---')
+lessons_extracted = re.findall(lesson_pattern, lessons)
 ```
 
 Then we process the text for each lesson as follows:
 ```python
-    lessons_dict = {}
-    for lesson in lessons_extracted:
-        lesson_output = process_lesson_text(lesson[0])
-        lessons_dict[lesson[1]] = lesson_output
+lessons_dict = {}
+for lesson in lessons_extracted:
+    lesson_output = process_lesson_text(lesson[0])
+    lessons_dict[lesson[1]] = lesson_output
 
-    with open(f'{output_path}lessons.json', 'w') as file:
-        json.dump(lessons_dict, file, indent=4)
+with open(f'{output_path}lessons.json', 'w') as file:
+    json.dump(lessons_dict, file, indent=4)
 
 def process_lesson_text(text):
     # Remove number at start of line
@@ -168,16 +171,9 @@ Setup for audio generation
 silence_duration1 = 2000 # milliseconds
 silence_duration2 = 3000 # milliseconds
 
-with open('config.yaml', 'r') as file:
-    config = yaml.safe_load(file)
-
-language = config['settings']['language']
-difficulty_level = config['settings']['difficulty_level']
-
 text_lessons_path = f'../data/{language}/{difficulty_level}/lessons.json'
 speech_lessons_path = f'../data/{language}/{difficulty_level}/'
 
-openai_client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 speech_model = 'tts-1'
 ```
 
@@ -240,11 +236,20 @@ def text_to_speech(lesson_content):
     final_audio.export(f"{speech_lessons_path}{lesson_content[0]}.mp3", format="mp3")
 ```
 
-<!-- Here is a sample lesson:
+Here is an example output for beginner lessons in German:
 <audio controls>
-  <source src="data/German/beginner/Lesson 2: Introducing Oneself and Others.mp3" type="audio/mpeg">
+  <source src="/files/LanguageLearningAudio/Lesson 1: Basic Greetings and Farewells.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
-</audio> -->
+</audio>
+
+## Conclusion
+In this post we have:
+- Generated language learning lessons with an LLM.
+- Processed and prepared the text for each lesson.
+- Converted each lesson to an audio file.
+
+Thank you for following along. Now go try it out yourself!
+
 
 
 
