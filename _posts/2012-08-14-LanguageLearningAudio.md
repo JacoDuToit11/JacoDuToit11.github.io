@@ -1,6 +1,6 @@
 ---
 title: 'Generating Audio Files for Learning Languages'
-date: 2024-08-24
+date: 2024-07-12
 # categories: [""]
 permalink: /posts/LanguageLearningAudio/
 tags:
@@ -9,7 +9,7 @@ tags:
   - AI for Educaction
 ---
 
-In this post, I'll walk you through how I generated audio files for assisting people in language learning. 
+In this post, I walk you through how I generated podcasts for assisting people in language learning.
 
 # Generating Audio Files for Learning Languages
 We generate audio files which are designed to repeat English phrases followed by their translations in a different language. This can greatly enhance the learning process by reinforcing vocabulary and phrases through repetition. 
