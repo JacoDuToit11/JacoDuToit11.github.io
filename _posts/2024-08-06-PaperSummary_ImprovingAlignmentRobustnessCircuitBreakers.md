@@ -9,7 +9,7 @@ tags:
 
 ---
 
-In this post, I summarize [Improving Alignment and Robustness with Circuit Breakers](https://arxiv.org/abs/2406.04313).
+Summary of [Improving Alignment and Robustness with Circuit Breakers](https://arxiv.org/abs/2406.04313).
 
 # Introduction
 As AI systems, especially large language models (LLMs), continue to advance, their potential for both benefit and harm grows. These models have demonstrated remarkable capabilities across a wide range of applications, but they are not without their flaws. One of the key issues is their vulnerability to adversarial attacks—attacks that can trick AI systems into generating harmful or unethical content.

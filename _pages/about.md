@@ -7,7 +7,15 @@ redirect_from:
   - /about.html
 ---
 
-I am a computer scientist from Cape Town. Currently working as a data scientist. My main interests include artificial intelligence, natural language processing, and computer vision. 
+I am a computer scientist from Cape Town, South. I am currently working as a Data Scientist/Machine Learning Engineer. 
+
+I am excited by the rapid advancements in AI systems, but concerned about the catastrophic risks they may pose. Therefore, I am passionate about exploring AI safety, interpretability, and alignment in my future research to ensure that AI benefits all humanity.
 
 ## Background and History
-I studied Computer Science at Stellenbosch University and received my Master's which focused on transformer-based language models.
+I did my Master's in Computer Science at Stellenbosch University under Marcel Dunaiski. My thesis focused on transformer-based language models for natural language processing tasks. Before that I studied Mathematics and Computer Science at Stellenbosch University. Before that I grew up in the lovely town of Stellenbosch.
+
+## Other Interests
+Apart from working on AI, I enjoy:
+- [Reading](https://www.goodreads.com/user/show/156206121-jaco-du-toit)
+- [Running, Cycling, and Hiking](https://www.strava.com/athletes/18155610)
+- Traveling

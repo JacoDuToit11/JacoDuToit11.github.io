@@ -4,14 +4,14 @@ title: ""
 permalink: /cv/
 author_profile: true
 redirect_from:
-  - /resume
+  - /CV
 ---
 
 {% include base_path %}
 
-<object data="/files/Jaco_DuToit_Resume.pdf" type="application/pdf" width="600px" height="600px">
-    <embed src="/files/Jaco_DuToit_Resume.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/files/Jaco_DuToit_Resume.pdf">Download PDF</a>.</p>
+<object data="/files/JacoDuToit_CV.pdf" type="application/pdf" width="600px" height="600px">
+    <embed src="/files/JacoDuToit_CV.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/files/JacoDuToit_CV.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 
