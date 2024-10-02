@@ -7,12 +7,12 @@ redirect_from:
   - /about.html
 ---
 
-I am a computer scientist from Cape Town, South. I am currently working as a Data Scientist/Machine Learning Engineer. 
+I am a computer scientist from Cape Town, South Africa. I am currently working as a Data Scientist/Machine Learning Engineer. 
 
 I am excited by the rapid advancements in AI systems, but concerned about the catastrophic risks they may pose. Therefore, I am passionate about exploring AI safety, interpretability, and alignment in my future research to ensure that AI benefits all humanity.
 
 ## Background and History
-I did my Master's in Computer Science at Stellenbosch University under Marcel Dunaiski. My thesis focused on transformer-based language models for natural language processing tasks. Before that I studied Mathematics and Computer Science at Stellenbosch University. Before that I grew up in the lovely town of Stellenbosch.
+I did my Master's in Computer Science at Stellenbosch University under Marcel Dunaiski. My thesis focused on transformer-based language models for natural language processing tasks. Before that I studied Mathematics and Computer Science at Stellenbosch University. Before that I grew up in the lovely town of [Stellenbosch](https://en.wikipedia.org/wiki/Stellenbosch).
 
 ## Other Interests
 Apart from working on AI, I enjoy:
