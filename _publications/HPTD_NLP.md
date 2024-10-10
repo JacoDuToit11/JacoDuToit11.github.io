@@ -7,6 +7,6 @@ date: 2024-07-01
 venue: 'Natural Language Processing'
 # slidesurl: 'http://JacoDuToit11.github.io/files/SACAIR_Presentation.pdf'
 paperurl: 'https://doi.org/10.1017/nlp.2024.51'
-citation: 'du Toit J and Dunaiski M. Prompt tuning discriminative language models for hierarchical text classification.
+citation: 'du Toit, J. and Dunaiski, M. Prompt tuning discriminative language models for hierarchical text classification.
 Natural Language Processing https://doi.org/10.1017/nlp.2024.51'
 ---
