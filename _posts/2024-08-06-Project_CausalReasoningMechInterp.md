@@ -21,6 +21,7 @@ In this study, we extend this analysis by investigating:
 
 Our findings suggest that while LLMs consistently localize causal syntax in early layers, different models allocate reasoning tasks to distinct attention heads depending on their scale. Furthermore, we observe structural parallels between semantic and mathematical reasoning, with mathematical processing typically occurring in deeper layers and requiring more distributed computation across attention heads. These insights contribute to a broader understanding of how LLMs perform causal reasoning tasks.
 
+Code and paper can be found [here](https://github.com/JacoDuToit11/reasoning-mech-interp.git).
 
 ## Methods
 
