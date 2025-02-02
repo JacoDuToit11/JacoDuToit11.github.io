@@ -9,6 +9,8 @@ tags:
   - Causal Reasoning
 ---
 
+<!-- In this project we investigate the circuits used by LLMs for simple causal reasoning tasks. -->
+
 ## Introduction
 
 Recent work by [Lee et al.](https://arxiv.org/pdf/2410.21353) has taken initial steps in analyzing the circuits used by transformer-based large language models (LLMs) for simple causal reasoning tasks. Their study focused on clear-cut cause-and-effect sentences like *"John had to pack because he is going to the airport"* and analyzed causal interventions on GPT-2 small. They demonstrated that causal syntax, such as *"because"* and *"so"*, is captured in the first few layers of the model, while later layers focus on semantic relationships to perform simple causal reasoning tasks.
@@ -28,7 +30,7 @@ To investigate causal reasoning mechanisms across LLMs, we performed the main st
    - Effect-because-Cause: $$[e_1,\ldots,e_n, d, c_1,\ldots c_m]$$
    - Cause-so-Effect: $$[c_1,\ldots c_m, d, e_1,\ldots,e_n]$$
    
-   where $c_i$ represents cause tokens, $d$ is the causal delimiter ("because" or "so"), and $e_j$ represents effect tokens. For example: "Alice went to the craft fair because she wants to buy gifts."
+   where $$c_i$$ represents cause tokens, $$d$$ is the causal delimiter ("because" or "so"), and $$e_j$$ represents effect tokens. For example: "Alice went to the craft fair because she wants to buy gifts."
 
 2. **Attention Analysis**: We quantified causal reasoning by measuring:
    - Attention paid to causal delimiters ($$P_d$$):
