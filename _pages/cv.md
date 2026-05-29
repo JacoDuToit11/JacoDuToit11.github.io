@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: ""
+title: "CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -9,62 +9,70 @@ redirect_from:
 
 {% include base_path %}
 
-<object data="/files/JacoDuToit_CV.pdf" type="application/pdf" width="600px" height="600px">
-    <embed src="/files/JacoDuToit_CV.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/files/JacoDuToit_CV.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+<style>
+.cv-frame-wrap {
+  width: 100%;
+  height: 85vh;
+  min-height: 600px;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  background: #525659;
+  padding: 1em 0;
+  text-align: center;
+}
+.cv-frame-wrap canvas {
+  display: block;
+  margin: 0 auto 1em;
+  max-width: 95%;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  background: #fff;
+}
+.cv-status {
+  color: #ddd;
+  font-size: 0.95em;
+  padding: 2em;
+}
+.cv-status a { color: #9ec5ff; }
+</style>
 
-<!-- Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+<div class="cv-frame-wrap" id="cv-viewer">
+  <p class="cv-status" id="cv-status">Loading CV&hellip;</p>
+</div>
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(function () {
+  var fileUrl = "{{ base_path }}/files/JacoDuToit_CV.pdf?v=2";
+  var viewer = document.getElementById("cv-viewer");
+  var status = document.getElementById("cv-status");
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+  function fail() {
+    status.innerHTML =
+      'Unable to display the CV inline. ' +
+      '<a href="' + fileUrl + '">Open the PDF</a> instead.';
+  }
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+  if (!window.pdfjsLib) { fail(); return; }
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams -->
+  pdfjsLib.getDocument(fileUrl).promise.then(async function (pdf) {
+    if (status) status.remove();
+    var dpr = window.devicePixelRatio || 1;
+    for (var n = 1; n <= pdf.numPages; n++) {
+      var page = await pdf.getPage(n);
+      var targetWidth = viewer.clientWidth * 0.95;
+      var base = page.getViewport({ scale: 1 });
+      var scale = targetWidth / base.width;
+      var viewport = page.getViewport({ scale: scale * dpr });
+      var canvas = document.createElement("canvas");
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      viewer.appendChild(canvas);
+      await page.render({ canvasContext: canvas.getContext("2d"), viewport: viewport }).promise;
+    }
+  }).catch(fail);
+})();
+</script>

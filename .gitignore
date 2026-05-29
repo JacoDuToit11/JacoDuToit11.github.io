@@ -7,7 +7,23 @@ local/
 # Ignore the Gemfile that is generated
 Gemfile.lock
 
+# Locally installed gems (bundle install --path vendor/bundle)
+vendor/
+.bundle/
+
 # Ingore files created by npm
 node_modules
 package-lock.json
 .DS_Store
+.env
+logs/
+__pycache__/
+
+# Draft posts not ready to publish yet
+_posts/2012-08-14-RAGBOT.md
+_posts/2024-08-06-PaperSummary_Llama3.md
+_posts/2024-08-14-PaperSummary_JailbrokenHowDoesLLMSafetyTrainingFail.md
+_posts/2024-08-14-PaperSummary_RepresentationLearningTopDownApproachToAITransparancy copy 2.md
+_posts/2024-08-14-PaperSummary_SafetyWashing.md
+_posts/2024-08-14-PaperSummary_TowardsMonosemanticity.md
+images/Posts/PaperSummary_GSM/
