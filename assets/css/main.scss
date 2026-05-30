@@ -39,3 +39,118 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+/* ==========================================================================
+   Modern Academic refinements
+   ========================================================================== */
+
+/* Smoother rendering for the Inter / Source Serif pairing */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page__content {
+  h1, h2, h3 {
+    letter-spacing: -0.01em;
+  }
+
+  /* Hairline rule under section headings for an academic, print-like feel */
+  h2 {
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+/* Sidebar bio styled as the role/accent line */
+.author__bio {
+  color: $accent-color;
+  font-weight: 600;
+}
+
+/* Recent Activity timeline */
+.timeline {
+  margin: 1.5em 0 0.5em;
+  padding-left: 1.5em;
+  border-left: 2px solid $border-color;
+}
+
+.timeline__item {
+  position: relative;
+  margin-bottom: 1.6em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  /* dot on the rail */
+  &:before {
+    content: "";
+    position: absolute;
+    left: calc(-1.5em - 7px);
+    top: 0.45em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $accent-color;
+    border: 2px solid $background-color;
+  }
+}
+
+.timeline__date {
+  display: block;
+  margin-bottom: 0.2em;
+  font-family: $global-font-family;
+  font-size: 0.78em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $accent-color;
+}
+
+.timeline__body {
+  line-height: 1.6;
+}
+
+/* Avatar: clean rounded-square portrait instead of a circle */
+.author__avatar img {
+  border-radius: 10px;
+
+  @include breakpoint($large) {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    padding: 0;
+    border: 1px solid $border-color;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Sidebar text: serif name, consistent left alignment and tighter rhythm */
+.sidebar {
+  .author__name {
+    font-family: $header-font-family;
+    font-size: $type-size-4;
+    font-weight: 700;
+  }
+
+  .author__content,
+  .author__urls-wrapper {
+    text-align: left;
+  }
+
+  .author__urls li {
+    line-height: 1.5;
+  }
+}
+
+/* Active nav tab: accent text + persistent underline so the current page is obvious */
+.greedy-nav .visible-links li.active a {
+  color: $accent-color;
+  font-weight: 600;
+
+  &:before {
+    background: $accent-color;
+    transform: scaleX(1);
+  }
+}
